@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Check formatting
+        run: |
+          unformatted="$(gofmt -l $(git ls-files '*.go'))"
+          test -z "$unformatted"
+      - name: Vet
+        run: go vet ./...
+      - name: Test
+        run: go test -race ./...
