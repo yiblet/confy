@@ -1,10 +1,10 @@
 # Confy
 
-Confy is a Go library for building configuration.
+Confy is a Go library wiring up your code to from config files.
 
-* **Low dependencies:** Confy depends only on the standard library. JSON works out of the box. TOML, YAML, or anything else is the parser you already use, passed as a function, so Confy adds nothing to your build.
-* **Modular:** Each package declares the configuration it needs and how that becomes a working component. You compose them to make the whole binary, and `Build` hands back wired components, not a bag of settings. Configuration scales with your code instead of piling up in one central struct.
-* **Easy to use:** From one configuration definition, Confy can generate docs, JSON schema, and easy to read error messages.
+* **No dependencies:** Confy depends only on the standard library. JSON works out of the box. TOML, YAML, or anything else is the parser you already use, passed as a function, so Confy adds nothing to your build.
+* **Modular:** Each package declares the configuration it needs and how that becomes a working component. You compose them together. Configuration scales with your code instead of piling up in one central struct.
+* **Easy to use:** From one configuration definition, Confy can generate docs, a JSON schema, and easy to read error messages.
 
 Confy requires Go 1.27 or later. Install it with `go get github.com/yiblet/confy`.
 
